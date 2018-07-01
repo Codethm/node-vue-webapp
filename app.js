@@ -20,10 +20,10 @@ var app = new Vue({
       ]
     },
     mounted() {
-      axios.get(api + "/listTemple").then(response => {
-        console.log(response.data);
-        this.result = response.data;
-      })
+      // axios.get(api + "/listTemple").then(response => {
+      //   console.log(response.data);
+      //   this.result = response.data;
+      // })
     },
     methods: {
     }
