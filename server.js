@@ -27,8 +27,7 @@ app.get('/api/listTemple', function(req, res){
         var db = client.db('temple');
         if (err) throw err;
         db.collection("temples").find().toArray().then(temples=>{
-           const output = {temple : temples} 
-           console.log(output);
+           const output = {temple : temples}
            res.json(output);
         });
         client.close();
