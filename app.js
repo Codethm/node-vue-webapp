@@ -1,3 +1,5 @@
+const api ="https://codethm.me/api";
+
 var app = new Vue({
     el: '#app',
     data: {
@@ -15,6 +17,12 @@ var app = new Vue({
           see : false
         }
       ]
+    },
+    mounted() {
+      axios.get(api + "/listTemple").then(response => {
+        console.log(response.data);
+        this.temples = response.data;
+      })
     },
     methods: {
     }
