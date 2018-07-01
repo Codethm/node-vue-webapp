@@ -1,6 +1,8 @@
 const express = require('express');
 const https = require('https');
 const fs = require('fs');
+const MongoClient = require('mongodb').MongoClient;
+const url = "mongodb://localhost:27017";
 
 var app = express();
 app.use(express.static(__dirname));
@@ -20,10 +22,22 @@ app.get('/.well-known/pki-validation/146B5DEB5A1B5AA2E633DF1A17F6D4F2.txt',funct
     res.sendfile(__dirname + '/ssl/146B5DEB5A1B5AA2E633DF1A17F6D4F2.txt');
 })
 
+app.get('/api/listTemple', function(req, res){
+    MongoClient.connect(url, function(err, client) {
+        var db = client.db('temple');
+        if (err) throw err;
+        db.collection("temples").find().toArray().then(temples=>{
+           const output = {result : "ok", massage : temples} 
+           res.json(output);
+        });
+        client.close();
+      });
+})
+
 app.listen(80, function(){
     console.log("HTTP is listening to port 80.");
-});
+})
 
 https.createServer(httpsOptions, app).listen(443,function(){
     console.log("HTTPS is listening to port 443.");
-});
+})

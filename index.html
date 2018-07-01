@@ -7,9 +7,11 @@
     <title>Temples in Chiang Mai</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Temples in Chiang Mai</h1>
-            <div id="app">
+    <div class="container ">
+            <div class="jumbotron">
+                    <h1>Temples in Chiang Mai</h1>      
+                  </div>
+            <div id="app" class="bg-light text-dark">
                 <ol>
                     <li v-for="temple in temples">
                         <a href="#" v-on:click="temple.see = !temple.see">
@@ -25,6 +27,20 @@
                 </ol>
             </div>
     </div>
+    <footer style="position:fixed; left:0; bottom:0; width:100%; ">
+        <div class="container">
+          <img src="image/tool.png" height="42">
+          <span class="text-muted">Power by : Github <a href="https://github.com/Codethm">Codethm</a></span>
+          <img src="image/logo/no-ip.png" height="42">
+          <img src="image/logo/Namecheap.png" height="42">
+          <img src="image/logo/comado.png" height="42">
+          <img src="image/logo/Octocat.png" height="42">
+          <img src="image/logo/pack.png" height="42">
+          <img src="image/logo/whoisguard.png" height="42">
+          
+
+        </div>
+      </footer>
     <script src="app.js" charset="utf-8"></script>
 </body>
 </html>
