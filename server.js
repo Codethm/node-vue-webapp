@@ -24,7 +24,7 @@ app.get('/login', function(req, res) {
     res.sendfile(__dirname + '/views/login.html'); 
 });
 
-app.get('/calculator', function(req, res) {
+app.post('/calculator', function(req, res) {
     res.sendfile(__dirname + '/views/calculator.html'); 
 });
 
