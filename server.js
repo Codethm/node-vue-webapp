@@ -2,7 +2,7 @@ const express = require('express');
 const https = require('https');
 const fs = require('fs');
 const MongoClient = require('mongodb').MongoClient;
-var session  = require('express-session');
+const session  = require('express-session');
 
 const url = "mongodb://localhost:27017";
 
@@ -21,10 +21,16 @@ app.get('/',function(req,res){
 })
 
 app.get('/login', function(req, res) {
-    res.sendfile(__dirname + '/views/login.html'); 
+    res.sendfile(__dirname + '/views/login.html');
+
 });
 
-app.post('/calculator', function(req, res) {
+app.post('/login', function(req, res) {
+    req.session.authenticated = true;
+    res.redirect('/calculator');
+});
+
+app.get('/calculator', function(req, res) {
     res.sendfile(__dirname + '/views/calculator.html'); 
 });
 
