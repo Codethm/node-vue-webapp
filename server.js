@@ -2,6 +2,8 @@ const express = require('express');
 const https = require('https');
 const fs = require('fs');
 const MongoClient = require('mongodb').MongoClient;
+var session  = require('express-session');
+
 const url = "mongodb://localhost:27017";
 
 var app = express();
@@ -17,6 +19,17 @@ const httpsOptions = {
 app.get('/',function(req,res){
     res.sendfile(__dirname + '/index.html');
 })
+
+app.get('/login', function(req, res) {
+    res.sendfile(__dirname + '/views/login.html'); 
+});
+
+app.get('/calculator', function(req, res) {
+    res.sendfile(__dirname + '/views/calculator.html'); 
+});
+
+
+
 
 app.get('/.well-known/pki-validation/146B5DEB5A1B5AA2E633DF1A17F6D4F2.txt',function(req,res){
     res.sendfile(__dirname + '/ssl/146B5DEB5A1B5AA2E633DF1A17F6D4F2.txt');

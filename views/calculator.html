@@ -1,0 +1,82 @@
+<!-- views/login.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>Node Authentication</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <style>
+        body        { padding-top:40px; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<div class="col-sm-6 col-sm-offset-3">
+
+    <h1> Triangle <span id="triangleArea"></span></h1>
+    <form name=triangle>
+        <div class="form-group">
+            <label>Base</label>
+            <input type="text" class="form-control" name="tBase">
+        </div>
+        <div class="form-group">
+            <label>Height</label>
+            <input type="text" class="form-control" name="tHeight">
+        </div>
+
+        <input type="button" onclick="triangleArea()" value="Calculate" class="btn btn-warning btn-lg"></input>
+    </form>
+
+    <hr>
+
+    <h1> Circle <span id="circleArea"></span></h1>
+    <form name=circle>
+        <div class="form-group">
+            <label>Radius</label>
+            <input type="text" class="form-control" name="radius">
+        </div>
+
+        <input type="button" onclick="circleArea()" value="Calculate" class="btn btn-warning btn-lg"></input>
+    </form>
+
+    <hr>
+
+    <h1> Rectangle  <span id="rectangleArea"></span></h1>
+    <form name=rectangle>
+        <div class="form-group">
+            <label>Base</label>
+            <input type="text" class="form-control" name="rLength">
+        </div>
+        <div class="form-group">
+            <label>Height</label>
+            <input type="text" class="form-control" name="rWidth">
+        </div>
+
+        <input type="button" onclick="rectangleArea()" value="Calculate" class="btn btn-warning btn-lg"></input>
+    </form>
+
+</div>
+
+</div>
+<script>
+    function triangleArea() {
+       var tBase = document.triangle.tBase.value;
+       var tHeight = document.triangle.tHeight.value;
+       var triangleArea = 1/2 * tBase * tHeight;
+       document.getElementById("triangleArea").innerHTML = " = " + triangleArea;
+    }
+    function circleArea() {
+       var radius = document.circle.radius.value;
+       var circleArea = Math.PI * radius * radius;
+       document.getElementById("circleArea").innerHTML = " = " + circleArea;
+    }
+    function rectangleArea() {
+       var rLength = document.rectangle.rLength.value;
+       var rWidth = document.rectangle.rWidth.value;
+       var rectangleArea = rLength * rWidth;
+       document.getElementById("rectangleArea").innerHTML = " = " + rectangleArea;
+    }
+    </script>
+</body>
+</html>
